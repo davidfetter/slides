@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="revealjs/dist/reset.css">
+		<link rel="stylesheet" href="revealjs/dist/reveal.css">
+		<link rel="stylesheet" href="revealjs/dist/theme/solarized.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="revealjs/plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>Slide example
+                    <aside class="notes">
+                        Example of speaker note<br/>
+                        Several<br/>
+                        lines
+                    </aside>
+                </section>
+				<section>Another slide
+                    <section data-markdown>
+                        <textarea data-template>
+                            ```
+...
+do
+{
+    int32   remainder;
+    int32   oldvalue = value;
+
+    value /= 10;
+    remainder = oldval - value * 10;
+    *a++ = '0' + remainder;
+} while (value != 0)
+...
+                            ```
+                        </textarea>
+                    </section>
+                </section>
+			</div>
+		</div>
+
+		<script src="revealjs/dist/reveal.js"></script>
+		<script src="revealjs/plugin/notes/notes.js"></script>
+		<script src="revealjs/plugin/markdown/markdown.js"></script>
+		<script src="revealjs/plugin/highlight/highlight.js"></script>
+		<script src="revealjs/plugin/highlight/highlight.js"></script>
+		<script src="revealjs/plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+        <style type="text/css">
+            #footer-left {
+                position: absolute;
+                bottom: 5%;
+                left: 5%;
+                font-size: 5%;
+            }
+            #footer-right {
+                position: absolute;
+                bottom: 5%;
+                left: 5%;
+                font-size: 5%;
+            }
+            u1 {
+                list-style-type: none;
+            }
+        </style>
+        <div id="hidden" style="display:none;">
+            <div id="header">
+            <div id="header-left"></div>
+            <div id="header-right"></div>
+            <div id="footer-left">
+                David Fetter (he/him)<br/>
+                <a href="mailto:david@fetter.org">david@fetter.org</a>
+            </div>
+            <div id="footer-right">
+                <a href="https://fetter.org" alt="fetter.org">David Fetter Consulting</a></div>
+            </div>
+        </div>
+    </div>
+	</body>
+</html>
