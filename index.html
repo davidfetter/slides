@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>PgBouncer Pause Praxis</title>
 
 		<link rel="stylesheet" href="revealjs/dist/reset.css">
 		<link rel="stylesheet" href="revealjs/dist/reveal.css">
@@ -16,31 +16,69 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide example
+                <section>PgBouncer Pause Praxis
+                    <h1>⏸</h1>
                     <aside class="notes">
                         Example of speaker note<br/>
                         Several<br/>
                         lines
                     </aside>
                 </section>
-				<section>Another slide
-                    <section data-markdown>
-                        <textarea data-template>
-                            ```
-...
-do
-{
-    int32   remainder;
-    int32   oldvalue = value;
-
-    value /= 10;
-    remainder = oldval - value * 10;
-    *a++ = '0' + remainder;
-} while (value != 0)
-...
-                            ```
-                        </textarea>
-                    </section>
+				<section>
+                    So What'cha Want?*
+                    <br/>
+                    <br/>
+                    <p class="fragment" align="left">Zero downtime</p>
+                    <p class="fragment" align="left">Isolated code changes</p>
+                    <p class="fragment" align="left">Smooth operation</p>
+                    <p class="fragment" align="left">Low cognitive load</p>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <p align="left">
+                        * when you're doing database maintenance<br/>
+                        Rest in power, MCA
+                    </p>
+                </section>
+				<section>
+                    How's that gonna work?
+                </section>
+				<section>
+                    Stable endpoint: PgBouncer.
+                </section>
+				<section>
+                    Whatever happens to the back end, it's there.
+                </section>
+				<section>
+                    (PgBouncer is pretending to be at least one database)
+                </section>
+                <section>
+                    What it looks like from the clients' perspective
+                        <p class="fragment" align="left">A few long-running queries error out (maybe).</p>
+                        <p class="fragment" align="left">Queries are lagging a bit. Any queries sent are enqueued.</p>
+                        <p class="fragment" align="left">Queries quit lagging</p>
+                        <p class="fragment" align="left">Cool!</p>
+				</section>
+				<section>
+                    Rollout Behind the Scenes
+                        <p class="fragment" align="left">Put PgBouncer configuration in place (if needed)</p>
+                        <p class="fragment" align="left">Quiesce Queries</p>
+                        <p class="fragment" align="left">⏸</p>
+                        <p class="fragment" align="left">Rejigger backend(s) per in-place configuration</p>
+                        <p class="fragment" align="left">Smash that&nbsp;&nbsp;⏵&nbsp;&nbsp;button</p>
+                </section>
+				<section>
+                    What if Something Went Wrong?
+                    <br/>
+                    <br/>
+                        <p class="fragment" align="left">Put PgBouncer configuration in place (if needed)</p>
+                        <p class="fragment" align="left">Quiesce Queries</p>
+                        <p class="fragment" align="left">⏸</p>
+                        <p class="fragment" align="left">Rejigger backend(s) per in-place configuration</p>
+                        <p class="fragment" align="left">Smash that&nbsp;&nbsp;⏵&nbsp;&nbsp;button</p>
+                    <br/>
+                    <br/>
+                    <p class="fragment" align="left">Note the striking similarity to the rollout procedure.</p>
                 </section>
 			</div>
 		</div>
